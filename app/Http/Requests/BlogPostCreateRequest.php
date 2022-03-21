@@ -49,8 +49,7 @@ class BlogPostCreateRequest extends FormRequest
     {
         return [
             'title' => 'Заголовок',
-            'title' => 'Заголовок',
-            'title' => 'Заголовок',
+
         ];
     }
 }
