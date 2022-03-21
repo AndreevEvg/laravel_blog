@@ -1,0 +1,52 @@
+php artisan make:model Models/BlogCategory -m
+php artisan make:model Models/BlogPost -m
+
+====== Создание сидов ======
+php artisan make:seeder UsersTableSeeder
+php artisan make:seeder BlogCategoriesTableSeeder
+
+====== Запуск миграций ======
+php artisan migrate
+
+====== Запуск сидов ======
+php artisan db:seed
+php artisan db:seed --class=UsersTableSeeder
+php artisan migrate:refresh --seed
+
+====== Создание контроллера ======
+php artisan make:controller RestTestController --resource
+
+====== Контроллеры приложения ======
+php artisan make:controller Blog/BaseController
+
+====== Контроллер статей блога ======
+php artisan make:controller Blog/PostController --resource
+php artisan make:controller Blog/Admin/CategoryController --resource
+php artisan make:controller Blog/Admin/PostController --resource
+
+====== Аутентификация ======
+php artisan make:auth
+
+====== Решение проблемы установки Laravel Breeze ======
+1. Обновите nodejs до последней версии:
+    sudo npm install -g n
+    sudo n latest
+2. Обновите npm до последней версии:
+    sudo npm install -g npm
+    hash -d npm
+3. Попробуйте установить нпм
+    npm i
+
+====== Класс для создания правил валидации ======
+php artisan make:request BlogCategoryUpdateRequest
+php artisan make:request BlogCategoryCreateRequest
+php artisan make:request BlogPostCreateRequest
+
+====== Откат и по-новому заполнение миграциями с сидами ======
+php artisan migrate:refresh --seed
+
+====== Observers - Наблюдатели ======
+php artisan make:observer BlogPostObserver --model=Models\BlogPost
+php artisan make:observer BlogCategoryObserver --model=Models\BlogCategory
+
+
